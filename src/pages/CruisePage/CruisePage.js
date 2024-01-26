@@ -8,19 +8,14 @@ import halfStar from "../../assets/icons/half star.svg"
 import star from "../../assets/icons/star.svg"
 import cruiseModals from '../../data/cruiseModals';
 import cruiseDetails from '../../data/cruiseDetails';
+import LandingPageModal from '../../components/LandingPageModal/LandingPageModal'
 import heart from "../../assets/icons/heart.svg";
 import share from "../../assets/icons/share.svg";
 
 function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
+    const [showModal, setShowModal] = useState(false);
+    const [currentModal, setCurrentModal] = useState(cruiseModals[0]);    
     const [currentSlide, setCurrentSlide] = React.useState(1);
-
-import {useState} from 'react';
-import LandingPageModal from '../../components/LandingPageModal/LandingPageModal'
-
-function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
-    const [showModal, setShowModal] = useState(false)
-    const [currentModal, setCurrentModal] = useState(cruiseModals[0])
-
     const navigate = useNavigate();
     const param = useParams().cruiseName
     console.log(param)
@@ -46,6 +41,17 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         setCurrentModal(cruiseModals[index])
         setShowModal(true);
     }
+
+    const onBackClicked = () => {
+        // Handle back button click
+        onPreviousCruiseClicked(); 
+        setCurrentSlide(prevSlide => Math.max(1, prevSlide - 1));
+    };
+
+    const onForwardClicked = () => {
+        onNextCruiseClicked(); 
+        setCurrentSlide(prevSlide => Math.min(3, prevSlide + 1)); 
+    };
 
     return(<main className='cruise-page'>
         {showModal ? <LandingPageModal modal={currentModal} setShowModal={(e) => {setShowModal(e)}}/> : ''}
@@ -92,8 +98,9 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         {/*<p className='cruise-page__more-details'>Want to see more details on your trip? Click <a href='' className='cruise-page__more-details--link'>here</a> to see more.</p>*/}
         <h2 className='cruise-page-modals-head'>Essential Tips for a Smooth Voyage</h2>
         <div className='cruise-page-modals'>
-            {cruiseModals.map((cruise, index)=>{
-                return (<div className='cruise-page-modals-item' key={index} onClick={() => {onModalClicked(index)}}>
+            {cruiseModals.map(cruise=>{
+                return (
+                <div className='cruise-page-modals-item' key={cruise.name}>
                     <img src={cruise.img} className='cruise-page-modals-item__image' alt={`${cruise.name} image`} />
                     <p className='cruise-page-modals-item__label'>{cruise.name}</p>
                 </div>)
