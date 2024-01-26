@@ -4,6 +4,8 @@
     position: relative;
     width: 100%;
     height: 100%;
+    font-size: 1rem;
+    line-height: 1.2;
 }
 
 .loading-page{
@@ -17,8 +19,6 @@
     justify-content: center;
     align-items: center;
 
-    
-
     &__button{
         position: absolute;
         top: 2rem;
@@ -29,22 +29,35 @@
 
     &-window{
         background-color: #FFFFFF;
-        padding: 2rem;
-        width: 40%;
-        max-width: 100%;
+        padding-top: 2.75rem;
+        padding-bottom: 2.75rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        border-radius: 1.5rem;
+        width: 22.125rem;
+        max-width: 90%;
+        height: 26.5rem;
+        position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        gap: 2rem;
+        align-items: center;
+        gap: 3rem;
 
         &__progress{
             width: 100%;
         }
 
         &--loading{
+            @extend .loading-page-window;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        &__loading{
+            font-size: 1rem;
+            line-height: 1.2;
+            
         }
 
         &-bar{
