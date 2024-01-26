@@ -8,14 +8,14 @@ import halfStar from "../../assets/icons/half star.svg"
 import star from "../../assets/icons/star.svg"
 import cruiseModals from '../../data/cruiseModals';
 import cruiseDetails from '../../data/cruiseDetails';
-import {useState} from 'react';
 import LandingPageModal from '../../components/LandingPageModal/LandingPageModal'
 import heart from "../../assets/icons/heart.svg";
 import share from "../../assets/icons/share.svg";
 
 function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
-    const [showModal, setShowModal] = useState(false)
-    const [currentModal, setCurrentModal] = useState(cruiseModals[0])    const [currentSlide, setCurrentSlide] = React.useState(1);
+    const [showModal, setShowModal] = useState(false);
+    const [currentModal, setCurrentModal] = useState(cruiseModals[0]);    
+    const [currentSlide, setCurrentSlide] = React.useState(1);
 
     const navigate = useNavigate();
     const param = useParams().cruiseName
