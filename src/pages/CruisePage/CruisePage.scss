@@ -74,8 +74,9 @@
         }
 
         &__image{
-            flex-grow: 1;
-            flex-shrink: 1;
+            width: 90%;
+            max-height: 12rem;
+            object-fit: cover;
         }
         &__actions {
             @include row;
@@ -149,8 +150,7 @@
 
             &__image{
                 width: 90%;
-                object-fit: fill;
-                object-position: center;
+                object-fit: cover;
                 height: 10rem;
             }
             &__label {
