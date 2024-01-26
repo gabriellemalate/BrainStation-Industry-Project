@@ -6,6 +6,7 @@ import QuestionPage from './pages/QuestionPage/QuestionPage';
 import {useState, useEffect} from 'react';
 import LandingPage from './pages/LandingPage/LandingPage';
 import LoadingPage from './pages/LoadingPage/LoadingPage';
+import CruisePage from './pages/CruisePage/CruisePage';
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
           <Route path='/' element={<QuestionPage cruises={cruises} setCruises={setCruises}/>}/>
           <Route path='/:questionId' element={<QuestionPage cruises={cruises} setCruises={setCruises}/>}/>
           <Route path='/loading' element={<LoadingPage />}/>
-          <Route path='/cruises' element={<LandingPage />}/>
+          <Route path='/cruises/:cruiseName' element={<CruisePage />}/>
       </Routes>
     </BrowserRouter>
   );
