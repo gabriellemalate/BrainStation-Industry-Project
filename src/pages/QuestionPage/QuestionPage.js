@@ -67,9 +67,7 @@ function QuestionPage({setCruises, cruises}){
             <div className='question-page'>
                 <button className='question-page__button'><img src={closeIcon} alt='Close Icon'/></button>
                 <section className='question-page-window'>
-                    <div className='question-page-window-bar'>
-                        {progressBar()}
-                    </div>
+                    {questionId ? <progress value={Number(questionId)/questionData.length} className='question-page-window__progress'/> : ''}
                     <p className='question-page-window__question'>{questionId ? questionData[questionId].question : `Hi, I'm the ocean oracle. Before we get into it, I'd like to ask you questions`}</p>
                     <button className='question-page-window__button' onClick={(e) => {
                         if(questionId) {toNextPage(questionData[questionId][1])} else {toNextPage(0)}
