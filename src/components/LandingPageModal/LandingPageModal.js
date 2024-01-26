@@ -3,15 +3,15 @@ import closeIcon from "../../assets/icons/close_FILL0_wght400_GRAD0_opsz24.svg"
 import dummy from "../../assets/icons/deck.png";
 import { useNavigate } from "react-router-dom";
 
-function LandingPageModal() {
+function LandingPageModal({modal, setShowModal}) {
   const navigate = useNavigate();
   const onExitClicked = () => {
-    navigate("/cruises");
+    setShowModal(false);
     return;
   };
 
   return (
-    <main className="main">
+    <div className="landing">
       <div className="landing-page-modal">
         <button
           className="landing-page-modal__button"
@@ -21,23 +21,20 @@ function LandingPageModal() {
         >
           <img src={closeIcon} alt="Close Icon" />
         </button>
-        <h2 className="landing-page-modal__header">Cruise Lingo</h2>
-        <img className="landing-page-modal__picture" src={dummy} alt="/" />
+        <h2 className="landing-page-modal__header">{modal.name}</h2>
+        <img className="landing-page-modal__picture" src={modal.img} alt="/" />
         <div className="landing-page-modal__info">
           <div className="landing-page-modal__info-text">
-          <p>
-          <span className="landing-page-modal__info--blue">Muster Drill:</span>{" "}
-          Mandatory safety drill before sailing, show you your emergency station
-        </p>
-        <p>
-          <span className="landing-page-modal__info--blue">Sea sickness:</span>{" "}
-          Nausea and dizziness cause by ship movement{" "}
-        </p>
+            {modal.details.map(detail=>{
+              return (<p>
+                <span className="landing-page-modal__info--blue">{detail.word}</span>{detail.def}
+              </p>)
+            })}
           </div>
        
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 
