@@ -1,14 +1,15 @@
-import oceania from '../assets/images/oceania.png'
+import oceania from '../assets/images/oceania.jpeg'
 
 const cruiseDetails = [
     {
         id: "oceania",
-        name: "Oceania Cruise",
+        name: "Oceania Cruises",
         img: oceania,
         rating: 4,
         details:[
-            "Suite with ocean view for a luxurious stay",
-            "Multiple gourmet restaurants with a focus on"
+            "Stops in Nassau and CocoCay, Bahamas, plus a cruise day.",
+            "Enjoy waterslides, surf simulator, and dining like Giovanni's Table.",
+            "Catch Broadway shows, ice skating, and live lounge music."
         ]
     }
 ]

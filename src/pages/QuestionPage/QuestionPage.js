@@ -33,9 +33,9 @@ function QuestionPage({setCruises, cruises}){
                 })
                 
                 try{
-                    ( async () => {const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/cruises`, requestObject)
-                    setCruises(response.data);})()
-                    navigate('/loading')
+                    //( async () => {const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/cruises`, requestObject)
+                    //setCruises(response.data);})()
+                    navigate('/cruises/oceania')
                 }catch(error){
                     console.log(error)
                 }
