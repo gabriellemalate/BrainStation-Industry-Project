@@ -42,22 +42,11 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         setShowModal(true);
     }
 
-    const onBackClicked = () => {
-        // Handle back button click
-        onPreviousCruiseClicked(); 
-        setCurrentSlide(prevSlide => Math.max(1, prevSlide - 1));
-    };
-
-    const onForwardClicked = () => {
-        onNextCruiseClicked(); 
-        setCurrentSlide(prevSlide => Math.min(3, prevSlide + 1)); 
-    };
-
     return(<main className='cruise-page'>
         {showModal ? <LandingPageModal modal={currentModal} setShowModal={(e) => {setShowModal(e)}}/> : ''}
         <div className='cruise-page-header'>
             <button className='cruise-page-header__close' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
-            <button className='cruise-page-header__book'>Book Now</button>
+            <a href='https://www.royalcaribbean.com/cruises/itinerary/4-night-bahamas-perfect-day-from-miami-on-freedom/FR04MIA-1040267997#step=0'><button className='cruise-page-header__book'>Book Now</button></a>
         </div>
         <h2 className='cruise-page__best-line'>The best option for you!</h2>
         <div className='cruise-page-head'>
@@ -98,9 +87,12 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         {/*<p className='cruise-page__more-details'>Want to see more details on your trip? Click <a href='' className='cruise-page__more-details--link'>here</a> to see more.</p>*/}
         <h2 className='cruise-page-modals-head'>Essential Tips for a Smooth Voyage</h2>
         <div className='cruise-page-modals'>
-            {cruiseModals.map(cruise=>{
+            {cruiseModals.map((cruise, index)=>{
                 return (
-                <div className='cruise-page-modals-item' key={cruise.name}>
+                <div className='cruise-page-modals-item' key={cruise.name} onClick={(e)=>{
+                    setCurrentModal(cruiseModals[index]);
+                    setShowModal(true)
+                }}>
                     <img src={cruise.img} className='cruise-page-modals-item__image' alt={`${cruise.name} image`} />
                     <p className='cruise-page-modals-item__label'>{cruise.name}</p>
                 </div>)
