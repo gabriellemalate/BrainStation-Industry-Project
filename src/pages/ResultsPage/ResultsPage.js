@@ -43,7 +43,6 @@ function ResultsPage() {
                     </section>
 
                     <AddOn />
-                    
                 </div>
             </main>
         </>
