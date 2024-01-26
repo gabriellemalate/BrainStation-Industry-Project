@@ -3,7 +3,7 @@ import axios from 'axios';
 import questionData from '../../data/questions';
 import closeIcon from '../../assets/icons/close_FILL0_wght400_GRAD0_opsz24.svg';
 import removeDark from '../../assets/icons/remove-dark.svg';
-import removeList from '../../assets/icons/remove-light.svg';
+import removeLight from '../../assets/icons/remove-light.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
