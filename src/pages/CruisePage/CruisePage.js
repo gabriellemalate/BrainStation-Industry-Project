@@ -46,7 +46,7 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         {showModal ? <LandingPageModal modal={currentModal} setShowModal={(e) => {setShowModal(e)}}/> : ''}
         <div className='cruise-page-header'>
             <button className='cruise-page-header__close' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
-            <button className='cruise-page-header__book'>Book Now</button>
+            <a href='https://www.royalcaribbean.com/cruises/itinerary/4-night-bahamas-perfect-day-from-miami-on-freedom/FR04MIA-1040267997#step=0'><button className='cruise-page-header__book'>Book Now</button></a>
         </div>
         <h2 className='cruise-page__best-line'>The best option for you!</h2>
         <div className='cruise-page-head'>
