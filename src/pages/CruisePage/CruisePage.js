@@ -42,17 +42,6 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         setShowModal(true);
     }
 
-    const onBackClicked = () => {
-        // Handle back button click
-        onPreviousCruiseClicked(); 
-        setCurrentSlide(prevSlide => Math.max(1, prevSlide - 1));
-    };
-
-    const onForwardClicked = () => {
-        onNextCruiseClicked(); 
-        setCurrentSlide(prevSlide => Math.min(3, prevSlide + 1)); 
-    };
-
     return(<main className='cruise-page'>
         {showModal ? <LandingPageModal modal={currentModal} setShowModal={(e) => {setShowModal(e)}}/> : ''}
         <div className='cruise-page-header'>
