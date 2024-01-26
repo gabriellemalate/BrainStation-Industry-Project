@@ -16,7 +16,6 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
     const [showModal, setShowModal] = useState(false);
     const [currentModal, setCurrentModal] = useState(cruiseModals[0]);    
     const [currentSlide, setCurrentSlide] = React.useState(1);
-
     const navigate = useNavigate();
     const param = useParams().cruiseName
     console.log(param)
@@ -26,6 +25,17 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         navigate('/');
         return;
     }
+
+    const onBackClicked = () => {
+        // Handle back button click
+        onPreviousCruiseClicked(); 
+        setCurrentSlide(prevSlide => Math.max(1, prevSlide - 1));
+    };
+
+    const onForwardClicked = () => {
+        onNextCruiseClicked(); 
+        setCurrentSlide(prevSlide => Math.min(3, prevSlide + 1)); 
+    };
 
     const onModalClicked = (index) =>{
         setCurrentModal(cruiseModals[index])
