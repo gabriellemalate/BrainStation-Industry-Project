@@ -21,7 +21,7 @@ function App() {
           <Route path='/' element={<QuestionPage cruises={cruises} setCruises={setCruises}/>}/>
           <Route path='/:questionId' element={<QuestionPage cruises={cruises} setCruises={setCruises}/>}/>
           <Route path='/cruises' element={<LandingPage />}/>
-          <Route path="/results" element={ResultsPage}/>
+          <Route path="/results" element={<ResultsPage/>}/>
       </Routes>
     </BrowserRouter>
   );
