@@ -5,6 +5,7 @@ import questionData from './data/questions';
 import QuestionPage from './pages/QuestionPage/QuestionPage';
 import {useState, useEffect} from 'react';
 import LandingPage from './pages/LandingPage/LandingPage';
+import LoadingPage from './pages/LoadingPage/LoadingPage';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
       <Routes>
           <Route path='/' element={<QuestionPage cruises={cruises} setCruises={setCruises}/>}/>
           <Route path='/:questionId' element={<QuestionPage cruises={cruises} setCruises={setCruises}/>}/>
+          <Route path='/loading' element={<LoadingPage />}/>
           <Route path='/cruises' element={<LandingPage />}/>
       </Routes>
     </BrowserRouter>

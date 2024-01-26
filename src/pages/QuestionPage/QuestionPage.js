@@ -2,8 +2,6 @@ import './QuestionPage.scss';
 import axios from 'axios';
 import questionData from '../../data/questions';
 import closeIcon from '../../assets/icons/close_FILL0_wght400_GRAD0_opsz24.svg';
-import removeDark from '../../assets/icons/remove-dark.svg';
-import removeLight from '../../assets/icons/remove-light.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -18,7 +16,7 @@ function QuestionPage({setCruises, cruises}){
         }
     }, [cruises])
 
-    const toNextPage = async (choice) =>{
+    const toNextPage = (choice) =>{
         try{
             if(!questionId){
                 navigate('/0')
@@ -35,13 +33,12 @@ function QuestionPage({setCruises, cruises}){
                 })
                 
                 try{
-                    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/cruises`, requestObject)
-                    setCruises(response.data);
+                    ( async () => {const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/cruises`, requestObject)
+                    setCruises(response.data);})()
+                    navigate('/loading')
                 }catch(error){
                     console.log(error)
                 }
-                
-                navigate(`/`)
             }
         }catch(error){
             console.log(error);
@@ -53,19 +50,15 @@ function QuestionPage({setCruises, cruises}){
         else{navigate('/')}
     }
 
-    const progressBar = () => {
-        if(questionId){
-            return questionData.map((question, index) => {
-                if(index <= questionId){return <img src={removeDark} alt="progress bar complete" />}
-                return <img src={removeLight} alt="progress bar to do" />;
-            })
-        }
-        return ''
+    const onExitClicked = () => {
+        navigate('/');
+        return;
     }
+
     return (
         <main className='main'>
             <div className='question-page'>
-                <button className='question-page__button'><img src={closeIcon} alt='Close Icon'/></button>
+                <button className='question-page__button' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
                 <section className='question-page-window'>
                     {questionId ? <progress value={Number(questionId)/questionData.length} className='question-page-window__progress'/> : ''}
                     <p className='question-page-window__question'>{questionId ? questionData[questionId].question : `Hi, I'm the ocean oracle. Before we get into it, I'd like to ask you questions`}</p>
