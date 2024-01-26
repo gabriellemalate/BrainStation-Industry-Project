@@ -10,10 +10,10 @@ function LoadingPage(){
     }
 
     return (<main className='main'>
-            <div className='question-page'>
-                <button className='question-page__button' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
-                <section className='question-page-window--loading'>
-                    <h2 className='question-page-window__loading'>Loading...</h2>
+            <div className='loading-page'>
+                <button className='loading-page__button' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
+                <section className='loading-page-window--loading'>
+                    <h2 className='loading-page-window__loading'>Loading...</h2>
                 </section>
             </div>
         </main>)

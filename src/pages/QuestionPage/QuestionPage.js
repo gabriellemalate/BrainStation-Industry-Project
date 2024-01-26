@@ -61,13 +61,15 @@ function QuestionPage({setCruises, cruises}){
                 <button className='question-page__button' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
                 <section className='question-page-window'>
                     {questionId ? <progress value={Number(questionId)/questionData.length} className='question-page-window__progress'/> : ''}
-                    <p className='question-page-window__question'>{questionId ? questionData[questionId].question : `Hi, I'm the ocean oracle. Before we get into it, I'd like to ask you questions`}</p>
-                    <button className='question-page-window__button' onClick={(e) => {
+                    <p className={`question-page-window__question${questionId ? '--question' : ''}`}>{questionId ? questionData[questionId].question : `Hi, I'm the Ocean Oracle, your guide to hidden depths. Before we set sail, mind if I ask a few questions to chart your course?`}</p>
+                    <div className='question-page-window-button-container'>
+                    <button className= {`question-page-window-button-container__button${questionId ? '--question' : ''}`} onClick={(e) => {
                         if(questionId) {toNextPage(questionData[questionId][1])} else {toNextPage(0)}
-                        }}>{questionId ? questionData[questionId][1] :"Yes"}</button>
-                    <button className='question-page-window__button' onClick={(e) => {
+                        }}>{questionId ? questionData[questionId][1] :"Yes, let's get started"}</button>
+                    {questionId ? <button className={`question-page-window-button-container__button${questionId ? '--question' : ''}`} onClick={(e) => {
                         if(questionId) {toNextPage(questionData[questionId][2])} else {toNextPage(0)}
-                        }}>{questionId ? questionData[questionId][2] : "No"}</button>
+                        }}>{questionId ? questionData[questionId][2] : "No"}</button> : ''}
+                    </div>
                     {questionId ? <button className='question-page-window__back' onClick={() => {onBackPage()}}>Back</button> : ''}
                 </section>
             </div>
