@@ -88,11 +88,11 @@
                 &--question{
                     @extend .question-page-window-button-container__button;
                     background-color: white;
-                    border: #005EDC solid 0.125rem;
-                    color: #005EDC;
+                    border: #041556 solid 0.125rem;
+                    color: #041556;
 
                     &:active{
-                        background-color: #005EDC;
+                        background-color: #041556;
                         color: white;
                     }
                 }
@@ -105,7 +105,7 @@
             width: 7.25rem;
             background-color: white;
             border: none;
-            color: #005EDC;
+            color: #041556;
             border: transparent solid 0.125rem;
             font-weight: 600;
             position: absolute;
@@ -113,8 +113,8 @@
             left: 0;
 
             &:active{
-                border: #005EDC solid 0.125rem;
-                background-color: #005EDC;
+                border: #041556 solid 0.125rem;
+                background-color: #041556;
                 color: white;
             }
         }
