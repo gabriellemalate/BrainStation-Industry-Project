@@ -1,9 +1,9 @@
-import lingoImage from '../assets/images/cruise_lingo.png';
-import packImage from '../assets/images/what_pack.png';
-import layoutImage from '../assets/images/ship_layout.png';
-import activitiesImage from '../assets/images/activities.png';
-import foodImage from '../assets/images/food.png';
-import amenitiesImage from '../assets/images/amenities.png';
+import lingoImage from '../assets/images/cruise_lingo.jpeg';
+import packImage from '../assets/images/what_pack.jpeg';
+import layoutImage from '../assets/images/ship_layout.jpeg';
+import activitiesImage from '../assets/images/activities.jpeg';
+import foodImage from '../assets/images/food.jpeg';
+import amenitiesImage from '../assets/images/amenities.jpeg';
 
 const modals = [
     {name: "Cruise Lingo 101", 
