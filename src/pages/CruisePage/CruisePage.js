@@ -20,17 +20,19 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         return;
     }
 
-    return(<main className='cruise'>
-        <button className='cruise-page__close' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
-        <button className='cruise-page__book' />
-        <h2>The best options for you!</h2>
+    return(<main className='cruise-page'>
+        <div className='cruise-page-header'>
+            <button className='cruise-page-header__close' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
+            <button className='cruise-page-header__book' />
+        </div>
+        <h2 className='cruise-page__best-line'>The best options for you!</h2>
         <div className='cruise-page-head'>
             <h1 className='cruise-page-head__name'>{cruise.name}</h1>
         </div>
         <div className='cruise-page-slide'>
             <button className='cruise-page-slide__back'><img src={backIcon} alt='back button' /></button>
-            <img src={cruise.img} alt='cruise image' />
-            <button className='cruise-page-slide__forward'><img src={backIcon} alt='forward button' /></button>
+            <img src={cruise.img} alt='cruise image' className='cruise-page-slide__image' />
+            <button className='cruise-page-slide__forward'><img src={forwardIcon} alt='forward button' /></button>
         </div>
         <div className='cruise-page-rating'>
             <div className='cruise-page-rating-stars'>
