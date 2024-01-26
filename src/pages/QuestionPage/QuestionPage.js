@@ -56,8 +56,8 @@ function QuestionPage({setCruises, cruises}){
     const progressBar = () => {
         if(questionId){
             return questionData.map((question, index) => {
-                if(index <= questionId){return removeDark}
-                return removeList;
+                if(index <= questionId){return <img src={removeDark} alt="progress bar complete" />}
+                return <img src={removeLight} alt="progress bar to do" />;
             })
         }
         return ''
