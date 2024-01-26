@@ -1,0 +1,64 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+
+
+.landing{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.landing-page-modal{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 30px;
+    padding-top: 5rem;
+
+    &__button{
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        border: none;
+        background-color: transparent;
+    }
+
+    &__header{
+        padding-right: 53vw;
+        padding-bottom: 0.5rem;
+        
+    }
+    &__picture{
+        border-radius: 4px;
+        width: 80vw;
+        max-width: 30rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__info {
+        padding-inline: 9.5vw;
+        &-text{
+            padding-bottom: 10rem;
+        }
+        p{
+            padding-bottom: 0.5rem;
+        }
+        &--blue{
+            color: #0C214D;
+            font-weight: 600;
+        }
+
+    }
+}

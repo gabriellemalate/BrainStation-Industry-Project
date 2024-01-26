@@ -1,4 +1,4 @@
-import oceania from '../assets/images/oceania.png'
+import oceania from '../assets/images/oceania.jpeg'
 
 const cruiseDetails = [
     {

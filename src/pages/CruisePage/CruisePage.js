@@ -14,6 +14,13 @@ import share from "../../assets/icons/share.svg";
 function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
     const [currentSlide, setCurrentSlide] = React.useState(1);
 
+import {useState} from 'react';
+import LandingPageModal from '../../components/LandingPageModal/LandingPageModal'
+
+function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
+    const [showModal, setShowModal] = useState(false)
+    const [currentModal, setCurrentModal] = useState(cruiseModals[0])
+
     const navigate = useNavigate();
     const param = useParams().cruiseName
     console.log(param)
@@ -35,7 +42,13 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         setCurrentSlide(prevSlide => Math.min(3, prevSlide + 1)); 
     };
 
+    const onModalClicked = (index) =>{
+        setCurrentModal(cruiseModals[index])
+        setShowModal(true);
+    }
+
     return(<main className='cruise-page'>
+        {showModal ? <LandingPageModal modal={currentModal} setShowModal={(e) => {setShowModal(e)}}/> : ''}
         <div className='cruise-page-header'>
             <button className='cruise-page-header__close' onClick={(e)=>{onExitClicked()}}><img src={closeIcon} alt='Close Icon'/></button>
             <button className='cruise-page-header__book'>Book Now</button>
@@ -79,9 +92,8 @@ function CruisePage({onNextCruiseClicked, onPreviousCruiseClicked}){
         {/*<p className='cruise-page__more-details'>Want to see more details on your trip? Click <a href='' className='cruise-page__more-details--link'>here</a> to see more.</p>*/}
         <h2 className='cruise-page-modals-head'>Essential Tips for a Smooth Voyage</h2>
         <div className='cruise-page-modals'>
-            {cruiseModals.map(cruise=>{
-                return (
-                <div className='cruise-page-modals-item' key={cruise.name}>
+            {cruiseModals.map((cruise, index)=>{
+                return (<div className='cruise-page-modals-item' key={index} onClick={() => {onModalClicked(index)}}>
                     <img src={cruise.img} className='cruise-page-modals-item__image' alt={`${cruise.name} image`} />
                     <p className='cruise-page-modals-item__label'>{cruise.name}</p>
                 </div>)

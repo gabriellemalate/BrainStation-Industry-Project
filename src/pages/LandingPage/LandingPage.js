@@ -1,4 +1,5 @@
 import './LandingPage.scss';
+
 import { useNavigate } from 'react-router-dom';
 import closeIcon from '../../assets/icons/close_FILL0_wght400_GRAD0_opsz24.svg';
 

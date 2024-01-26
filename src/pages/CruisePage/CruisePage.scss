@@ -2,6 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .cruise-page{
+    position: relative;
     width: 100%;
     min-height: 100%;
     @include column;
